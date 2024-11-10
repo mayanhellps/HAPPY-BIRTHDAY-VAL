@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Val!</title>
+    <style>
+        /* Background with Shooting Stars */
+        body {
+            font-family: 'Papyrus', cursive, sans-serif;
+            background: radial-gradient(circle, #ff9a9e, #fad0c4, #ff9a9e);
+            color: #FF69B4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Rotating and Bouncing Header */
+        header {
+            font-size: 4em;
+            font-weight: bold;
+            margin-top: 50px;
+            color: #FF4500;
+            text-shadow: 2px 2px #000;
+            animation: rotate 3s linear infinite, bounce 2s infinite;
+        }
+
+        @keyframes rotate { 
+            0% { transform: rotate(0deg); }
+            50% { transform: rotate(10deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Rainbow Text Message */
+        .message {
+            font-size: 2.5em;
+            padding: 20px;
+            margin-top: 30px;
+            display: inline-block;
+            border-radius: 15px;
+            max-width: 90%;
+            background-color: rgba(255, 255, 255, 0.85);
+            border: 2px solid #FF69B4;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            animation: rainbow 1.5s linear infinite;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes rainbow {
+            0% { color: #FF69B4; }
+            25% { color: #FFD700; }
+            50% { color: #32CD32; }
+            75% { color: #00BFFF; }
+            100% { color: #FF69B4; }
+        }
+
+        /* Shooting Stars */
+        .shooting-star {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #FFD700;
+            border-radius: 50%;
+            animation: shoot 3s linear infinite;
+            opacity: 0.7;
+        }
+
+        .shooting-star:nth-child(2) { left: 15%; animation-delay: 1s; }
+        .shooting-star:nth-child(3) { left: 35%; animation-delay: 0.5s; }
+        .shooting-star:nth-child(4) { left: 55%; animation-delay: 1.5s; }
+        .shooting-star:nth-child(5) { left: 75%; animation-delay: 2s; }
+
+        @keyframes shoot {
+            0% { top: -20px; transform: translateX(0); opacity: 1; }
+            100% { top: 100vh; transform: translateX(-200px); opacity: 0; }
+        }
+
+        /* Balloons */
+        .balloon {
+            position: absolute;
+            width: 50px;
+            height: 70px;
+            background: radial-gradient(circle, #FF69B4, #FF1493);
+            border-radius: 50% 50% 50% 50%/60% 60% 40% 40%;
+            bottom: -80px;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .balloon:nth-child(2) { left: 15%; animation-duration: 4s; }
+        .balloon:nth-child(3) { left: 25%; animation-duration: 5s; }
+        .balloon:nth-child(4) { left: 35%; animation-duration: 4.5s; }
+        .balloon:nth-child(5) { left: 45%; animation-duration: 3.5s; }
+        .balloon:nth-child(6) { left: 55%; animation-duration: 5.5s; }
+        .balloon:nth-child(7) { left: 65%; animation-duration: 4.2s; }
+        .balloon:nth-child(8) { left: 75%; animation-duration: 3.8s; }
+        .balloon:nth-child(9) { left: 85%; animation-duration: 5s; }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-300px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Detailed Cake with Layers and Sprinkles */
+        .cake {
+            position: relative;
+            width: 200px;
+            height: 150px;
+            background: #FF69B4;
+            margin: 50px auto;
+            border-radius: 15px 15px 0 0;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            animation: spin 3s infinite linear;
+        }
+
+        .cake:before, .cake:after {
+            content: "";
+            position: absolute;
+            width: 15px;
+            height: 50px;
+            background: #FFD700;
+            border-radius: 5px;
+            top: -40px;
+            animation: candle-flicker 1s infinite alternate;
+        }
+
+        .cake:before { left: 50px; }
+        .cake:after { left: 130px; }
+
+        .layer {
+            position: absolute;
+            height: 15px;
+            width: 180px;
+            background: #FF69B4;
+            border-radius: 5px;
+        }
+
+        .layer1 { top: 40px; background: #FFD700; }
+        .layer2 { top: 80px; background: #FF69B4; }
+        .layer3 { top: 120px; background: #FFD700; }
+
+        /* Sprinkles */
+        .sprinkle {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #32CD32;
+            animation: sprinkle-fall 2s infinite alternate;
+        }
+
+        .sprinkle:nth-child(2) { left: 30px; top: 60px; background: #00FFFF; }
+        .sprinkle:nth-child(3) { left: 90px; top: 50px; background: #FF4500; }
+        .sprinkle:nth-child(4) { left: 140px; top: 70px; background: #32CD32; }
+
+        /* Animations */
+        @keyframes spin { 
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes candle-flicker {
+            0% { background: #FFD700; }
+            100% { background: #FF4500; }
+        }
+
+        @keyframes sprinkle-fall {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(5px); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>HAPPY BIRTHDAY VAL!!</header>
+
+    <div class="message">
+        OMGGGGGGGGIOGUFIGUF HAPPY BIRTHDAY POOKS OH MY GYATT WE'RE THE SAME AGE NOW I STILL CAN'T BELIEVE UR 2 MONTHS YOUNGER THAN ME BUT HAPPYYY BIRTHDAY LOVELYYYY OGMOG
+    </div>
+
+    <!-- Shooting Stars -->
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+
+    <!-- Balloons -->
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+
+    <!-- Detailed Birthday Cake with Layers, Sprinkles, and Flickering Candles -->
+    <div class="cake">
+        <div class="layer layer1"></div>
+        <div class="layer layer2"></div>
+        <div class="layer layer3"></div>
+        <div class="sprinkle"></div>
+        <div class="sprinkle"></div>
+        <div class="sprinkle"></div>
+        <div class="sprinkle"></div>
+    </div>
+
+</body>
+</html>
